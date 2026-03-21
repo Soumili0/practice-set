@@ -1,13 +1,15 @@
 import java.util.*;
 public class PrintOneToN {
-    static void print1toN(int n){
-        if(n==0)return;
-        print1toN(n-1);
-        System.out.println(n+" ");
+    static print(int i,int n){
+        if(i>n) return;
+        System.out.println(i);
+        print(i+1,n);
     }
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        print1toN(n);
+    public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+        int n = sc.nectInt();
+        int i=1;
+        print(i,n);
     }
+    
 }
