@@ -1,0 +1,22 @@
+/*
+Give a list(arr)of n integers,print sums of 
+all subsets in it.output should be 
+printed in increasing order of sums
+*/
+class Solutions{
+void fun(int ind,int sum,ArrayList<Integer>arr,int n,ArrayLidst<Integer>sumSubSet){
+if(ind ==n){
+sumSutSet.add(sum);
+return;
+}
+fun(ind+1,sum+arr.get(ind),arr,n,sumSubSet);
+fun(ind+1`,sum,arr,n,sumSubSet);
+}
+
+ArrayList<Integer>SubsetSums(Arraylist<Integer>arr,int n){
+ArrayList<Integer>SumSubset = new ArrayList<>();
+fun(0,0,arr,n,sumSubset);
+Collections.sort(SumSubset);
+return;
+}
+}
