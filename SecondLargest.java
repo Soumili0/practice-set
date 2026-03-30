@@ -1,23 +1,24 @@
 import java.util.*;
-public class SecondLargest {
+public class SecondLargest{
     public static void main(String[]args){
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int arr[]=new int [n];
+        int arr[] = new int[n];
         for(int i=0;i<n;i++){
-            arr[i]=sc.nextInt();
+            arr[i] = sc.nextInt();
         }
-        int largest=Integer.MIN_VALUE;
-        int second = Integer.MIN_VALUE;
-        for(int x:arr){
-        if(x>largest){
-            second = largest;
-            largest=x;
-        }
-        else if (x>second && x!= largest){
-            second = x;
-        }
-        }
-System.out.println(second);
+int largest = arr[0];
+int secondlargest = -1;
+for(int i=0;i<n;i++){
+    if(arr[i]>largest){
+    
+        secondlargest = largest;
+        largest = arr[i];
+    }
+    else if(arr[i]>secondlargest && arr[i]!= largest){
+        secondlargest = arr[i];
+    }
+}
+System.out.println(secondlargest);
     }
 }
