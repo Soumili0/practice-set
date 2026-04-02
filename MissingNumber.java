@@ -38,3 +38,16 @@ int ans = sum-arrSum;
 System.out.println(ans);
 }
 }
+/*
+using xor
+int xor1=0;
+for(int i=1;i<=n;i++){
+    xor1^=i;
+}
+    int xor2=0;
+    for(int i=0;i<n-1;i++){
+        xor2^=arr[i];
+    }
+int ans = xor1^xor2;
+System.out.println(ans);
+*/
