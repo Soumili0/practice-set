@@ -1,0 +1,41 @@
+/*
+You are given an integer array nums and an integer k. Find the maximum subarray sum of all the subarrays of nums that meet the following conditions:
+The length of the subarray is k, and
+All the elements of the subarray are distinct.
+Return the maximum subarray sum of all the subarrays that meet the conditions. If no subarray meets the conditions, return 0.
+*/
+import java.util.*;
+
+class Solution {
+    public long maximumSubarraySum(int[] nums, int k) {
+        HashSet<Integer> set = new HashSet<>();
+        long sum = 0, maxSum = 0;
+        int left = 0;
+
+        for (int right = 0; right < nums.length; right++) {
+
+            // Remove duplicates from window
+            while (set.contains(nums[right])) {
+                set.remove(nums[left]);
+                sum -= nums[left];
+                left++;
+            }
+
+            // Add current element
+            set.add(nums[right]);
+            sum += nums[right];
+
+            // If window size == k
+            if (right - left + 1 == k) {
+                maxSum = Math.max(maxSum, sum);
+
+                // Slide window
+                set.remove(nums[left]);
+                sum -= nums[left];
+                left++;
+            }
+        }
+
+        return maxSum;
+    }
+}
