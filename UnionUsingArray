@@ -1,0 +1,52 @@
+import java.util.*;
+
+class Solution {
+    public int[] unionArray(int[] nums1, int[] nums2) {
+        List<Integer> unionList = new ArrayList<>();
+        int i = 0; // Pointer for nums1
+        int j = 0; // Pointer for nums2
+        
+        int n = nums1.length;
+        int m = nums2.length;
+
+        while (i < n && j < m) {
+            if (nums1[i] <= nums2[j]) {
+                // Add nums1[i] if it's the first element or not a duplicate
+                if (unionList.isEmpty() || unionList.get(unionList.size() - 1) != nums1[i]) {
+                    unionList.add(nums1[i]);
+                }
+                i++;
+            } else {
+                // Add nums2[j] if it's the first element or not a duplicate
+                if (unionList.isEmpty() || unionList.get(unionList.size() - 1) != nums2[j]) {
+                    unionList.add(nums2[j]);
+                }
+                j++;
+            }
+        }
+
+        // Add remaining elements from nums1
+        while (i < n) {
+            if (unionList.get(unionList.size() - 1) != nums1[i]) {
+                unionList.add(nums1[i]);
+            }
+            i++;
+        }
+
+        // Add remaining elements from nums2
+        while (j < m) {
+            if (unionList.get(unionList.size() - 1) != nums2[j]) {
+                unionList.add(nums2[j]);
+            }
+            j++;
+        }
+
+        // Convert List to primitive int array
+        int[] result = new int[unionList.size()];
+        for (int k = 0; k < unionList.size(); k++) {
+            result[k] = unionList.get(k);
+        }
+        
+        return result;
+    }
+}
